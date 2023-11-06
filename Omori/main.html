@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<!--check-->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Omori</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="icon" type="image/png" href="../Image/carousel/icon.png">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+  <!--Navigation bar-->
+  <header class="bg-black">
+    <nav class="navbar-dark">
+      <div class="d-flex">
+        <button class="btn mt-4 ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="../Image/whiteToogler.png" width="30"></button>
+
+        <div class="container-fluid text-center mt-4 navbar-brand me-0 ms-5">
+            <a href="main.html"><img id="lamp-logo" class="img-center ms-0 me-4 pe-lg-0" src="../Image/carousel/icon.png" alt="Omori" width="50"></a></a>
+        </div>
+
+        <button class="btn mt-3 me-4" type="button" onclick="window.location.href='admin.html'"><img src="../Image/userIcon.png" width="30"></button>
+
+      </div>
+        
+        <div class="d-block">
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header bg-black">
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body bg-black">
+                    <p>
+                        <div class="bg-black mt-4">
+                            <ul class=" mb-2 mb-lg-0 px-4">
+                                <li class="px-4">
+                                <a class="nav-link text-white" href="main.html">Home</a>
+                                </li>
+                                <li class="px-4">
+                                <a class="nav-link text-white" href="#trailer-video">Trailer</a>
+                                </li>
+                                <li class="px-4">
+                                <a class="nav-link text-white" href="merchStore.html">Store</a>
+                                </li>
+                                <li class="px-4">
+                                <a class="nav-link text-white" href="#Gallery">Gallery</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </p>
+                </div>
+        </div>
+    </div>
+
+        <div class="text-center justify-content-center mt-4 d-sm-none d-md-none d-none d-lg-flex">
+            <ul class="mb-2 mb-lg-0 px-4">
+                <li class="d-inline-block px-4">
+                  <a class="nav-link text-white" href="#trailer-video">Trailer</a>
+                </li>
+                <li class="d-inline-block px-4">
+                  <a class="nav-link text-white" href="merchStore.html">Store</a>
+                </li>
+                <li class="d-inline-block px-4">
+                  <a class="nav-link text-white" href="#Gallery">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <!--Main intro image-->
+    <div class="container-fluid px-0 bg-black">
+        <div class="container-fluid p-0 m-0 bg-black row">
+            <div class="row justify-content-center">
+              <img class="col-8 p-5  bg-black row " src="../Image/omoriPictures/omori.jpg">
+            </div>
+
+            <!--Description of the game-->
+            <p class="col-lg-8 col-12 container-fluid col-12 text-white text-center fs-5 mx-md-auto mx-2 glow-effect">
+                <span><strong>Omori</strong></span> Explore a strange world full of colorful friends and foes. 
+                Navigate through the vibrant and the mundane in order to uncover a forgotten past. When the time comes, 
+                the path you’ve chosen will determine your fate... and perhaps the fate of others as well.
+                <br>
+                <br>
+                OMORI is a video game by OMOCAT. It has been in production since 2014 and was released for <em>Steam</em> (PC/Mac) on December 25th, 2020. 
+            </p>
+        </div>
+
+        <!--Trailer video-->
+        <div class="container-fluid row mt-5 bg-black mb-5 d-flex justify-content-center ms-1 align-items-center">
+          <div id="trailer-video" class="trailer-video ratio ratio-16x9 mt-5" style="box-shadow: 0 0 20px 4px rgba(235,72,143,0.5)">
+            <iframe src="https://www.youtube.com/embed/_SUw94R7QVU?si=6Wydba9pzEKNzOFT" class="p-0">
+            </iframe>
+          </div>
+
+          <div class="text-center mt-5">
+            <p id="countdown" class="glow-effect text-white fs-3"></p>
+          </div>
+
+          <!--Link to the game stores-->
+          <div class="ms-1">
+            <div id="Store-link" class="container-fluid store-link row d-flex text-center justify-content-center mt-5 ms-0 ps-0 mb-2" style="box-shadow: 0 0 20px 4px rgb(223, 212, 253)">
+                <div class="col-12 my-2">
+                  <p class="col-12 fs-3 " style="color: white; font-weight: bold;">Aviable On</p>
+                </div>
+
+                <!-- Easter egg sounds -->
+                <audio id="breakSound1" src="../sound/break1.mp3"></audio>
+                <audio id="breakSound2" src="../sound/break2.mp3"></audio>
+                <audio id="breakSound3" src="../sound/break3.mp3"></audio>
+
+                <div class="col-3">
+                  <a class="text-center" style="text-decoration: none;" href="https://store.steampowered.com/app/420530/OneShot/">
+                    <img class="link-icon-steam" src="../Image/steamlogo.png" width="50">
+                    <br>
+                    <p class="mt-2" style="color: white;">Steam</p>
+                  </a>
+                </div>
+
+                <div class="col-3">
+                  <a class="text-center justify-content-center" style="text-decoration: none;" href="https://store.playstation.com/ru-ua/product/EP3919-CUSA34846_00-ONESHOTWMEEU0000">
+                    <img class="link-icon-playstation" src="../Image/psstorelogo.png" width="50">
+                    <br>
+                    <p class="mt-2" style="color: white;">PS4</p>
+                </a>
+                </div>
+
+                <div class="col-3">
+                  <a class="text-center" style="text-decoration: none;" href="https://www.nintendo.com/store/products/oneshot-world-machine-edition-switch/">
+                    <img class="link-icon-nintendo" src="../Image/nintendologo.png" width="50">
+                    <br>
+                    <p class="mt-2" style="color: white;">Nintendo</p>
+                </a>
+                </div>
+
+                <div class="col-3">
+                  <a class="text-center" style="text-decoration: none;" href="https://www.xbox.com/ru-RU/games/store/oneshot-world-machine-edition/9MX3GWKZHVTX">
+                    <img class="link-icon-xbox" src="../Image/xboxlogo.png" width="50">
+                    <br>
+                    <p class="mt-2" style="color: white;">Xbox</p>
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <!--Neon border for gallery div-->
+        <div class="mt-5 border-neon-purple">
+          <div>
+            <p id="Gallery" class="text-white text-center fs-3 glow-effect mt-3">
+              Gallery
+            </p>
+          </div>
+
+          <!--Carousel implementation-->
+          <div id="carousel" class="carousel slide" data-bs-ride="carousel" style="border-top: 2px solid rgba(138,43,163,1); box-shadow: 0 0 10px 5px rgba(138,43,163,0.5)">
+            <div class="">
+              <!--Carousel's buttons-->
+              <button id="prevBtn" class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+
+              <button id="nextBtn" class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+
+              <div class="carousel-inner">
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/fe08249a3130825629831c018799d110_original.avif">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/foot.jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/images (1).jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/images (2).jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/images (3).jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/images (5).jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/images (6).jpeg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/Omori.600.3953126.jpg">
+                </div>
+                <div class="carousel-items">
+                  <img class="d-block w-100" src="../Image/carousel/Без названия.jpeg">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- <div class="btn-to-top">
+      <a href="#">
+        <img src="../Image/44473.png" alt="Кнопка Наверх">
+      </a>
+    </div> -->
+
+  </main>
+
+
+
+  <footer class="footer">
+    <img src="../Image/carousel/images (4).jpeg" alt="Omori">
+  </footer>
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>

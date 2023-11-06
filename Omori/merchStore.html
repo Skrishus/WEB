@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../Image/lamp-icon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="merchStore.css">
+    <title>Merch</title>
+    
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"></head>
+
+<body>
+    <!--Navigation bar-->
+    <header class="bg-black">
+        <nav class="navbar-dark">
+            <div class="d-flex">
+                <button class="btn mt-4 ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="../Image/whiteToogler.png" width="30"></button>
+
+                <div class="container-fluid text-center mt-4 navbar-brand ms-lg-4">
+                    <a href="main.html"><img id="lamp-logo" class="img-center ms-2 me-lg-0 ms-lg-0 pe-lg-0 " src="../Image/carousel/icon.png" alt="Omori" width="50"></a></a>
+                </div>
+
+                <button class="btn mt-3 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart" aria-controls="offcanvas-cart"><img src="../Image/cart-icon.png" width="30"></button>
+            </div>
+            
+            <div class="d-block">
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header bg-black">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body bg-black">
+                        <p>
+                            <div class="mt-4">
+                                <ul class="mb-2 mb-lg-0 px-4">
+                                    <li class="px-4">
+                                        <button class="btn btn-dark bg-black border-0 text-white" onclick="window.location.href = 'main.html'">HOME</button>
+                                    </li>
+                                    <li class="px-4">
+                                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('all')">ALL</button>
+                                    </li>
+                                    <li class="px-4">
+                                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('music')">MUSIC</button>
+                                    </li>
+                                    <li class="px-4">
+                                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('accessoires')">ACCESSOIRES</button>
+                                    </li>
+                                    <li class="px-4">
+                                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('other')">OTHER</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-end bg-black mw-50 w-100" data-bs-scroll="true" tabindex="-1" id="offcanvas-cart" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasWithBothOptionsLabel">SHOPING CART</h5>
+                    <button type="button" class="btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body text-white text-center">
+                    <div class="basket">
+                        <p>Add something to your cart.</p>
+                    </div>
+                    
+                </div>
+                <div class="subtotal p-0">
+                    <p class=" text-white text-center" style="font-size: 10px;">SUBTOTAL</p>
+                </div>
+                <div class="total-price text-white text-center fs-3">
+                    <p class="fs-3 text-center text-white">$ 0.00</p>
+                </div>
+                <div class="offcanvas-footer text-center mb-4 bg-black">
+                <div class="">
+                    <p class=" text-white text-center" style="font-size: 14px;">Taxes and shippings calculated at checkout</p>
+                </div>
+                <button type="button" class="checkoutBtn end-100 btn btn-light rounded-5" onclick="alert('Your checkout will be sent to email.')" style="font-weight: bolder;">CHECKOUT</button>
+                </div>
+            </div>
+
+        <!-- Easter egg sounds -->
+        <audio id="breakSound1" src="../sound/break1.mp3"></audio>
+        <audio id="breakSound2" src="../sound/break2.mp3"></audio>
+        <audio id="breakSound3" src="../sound/break3.mp3"></audio>
+
+            <div class="text-center justify-content-center mt-4 mb-0 d-sm-none d-md-none d-none d-lg-flex">
+                <ul class="mb-0 p-0 mb-lg-0 px-4">
+                    <li class="d-inline-block px-4">
+                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('all')">ALL</button>
+                    </li>
+                    <li class="d-inline-block px-4">
+                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('music')">MUSIC</button>
+                    </li>
+                    <li class="d-inline-block px-4">
+                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('accessoires')">ACCESSOIRES</button>
+                    </li>
+                    <li class="d-inline-block px-4">
+                        <button class="btn btn-dark bg-black border-0 text-white" onclick="filterBy('other')">OTHER</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main catalouge -->
+    <main>
+        <div class="img-fluid container-fluid row text-center mt-3 ms-1">
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/sticker.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        SPROUT MOLE Sticker Set <br>
+                        <span class="product-price" data-price="21.00">$ 21.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('SPROUT MOLE Sticker Set', 21.00)" class="add-to-cart btn btn-light rounded-circle float-end ms-4 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+                
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/cap 25.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="product-info text-center text-white mt-3 ms-5 ps-2">
+                        OMORI Beanie <br>
+                        <span class="product-price" data-price="25.00">$ 25.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI Beanie', 25.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/OMORI Tag Photo Acrylic Keychains 12.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        OMORI Photo Keychains <br>
+                        <span class="product-price" data-price="12.00">$ 12.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI Photo Keychains', 12.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter other product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/lamp_poster other 20.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        OMORI Room Poster <br>
+                        <span class="product-price" data-price="20.00">$ 20.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI Room Poster', 20.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter other product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/omori_2014_poster other 20.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        OMORI 2014 Poster <br>
+                        <span class="product-price" data-price="20.00">$ 20.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI 2014 Poster', 20.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/BOSS_RUSH_KEYCHAINS_FRONT_COMPILED 10.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        Boss Rush Keychains <br>
+                        <span class="product-price" data-price="10.00">$ 10.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('Boss Rush Keychains', 10.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/MILKGIRL_package.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        Milkgirl pin <br>
+                        <span class="product-price" data-price="15.00">$ 15.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('Milkgirl pin', 15.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/OMORI FARAWAY TOWN Character Acrylic Stands 15.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        OMORI FARAWAY TOWN Character Acrylic Stands <br>
+                        <span class="product-price" data-price="15.00">$ 15.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI FARAWAY TOWN Character Acrylic Stands', 15.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/pixel calliope cap 35.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-5 me-4">
+                        PIXEL Calliope Cap <br>
+                        <span class="product-price" data-price="35.00">$ 35.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('PIXEL Calliope Cap', 35.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter accessoires product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/prettyboy_550x 35.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        Prettyboy Cap <br>
+                        <span class="product-price" data-price="35.00">$ 35.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('Prettyboy Cap', 35.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+            <div class="filter music product img-fluid col-xl-3 col-12 p-2 col-lg-4 col-md-6">
+                <div class="item-background rounded-4">
+                    <img class="merch-item" src="../Image/merchs/OMORI vinyl.webp" width="300">
+                </div>
+                <div class="d-flex justify-content-center w-100">
+                    <p class="text-center text-white mt-3 ms-5 ps-2">
+                        OMORI Vinyl <br>
+                        <span class="product-price" data-price="100.00">$ 100.00</span>
+                    </p>
+                    <button type="button" onclick="addToCart('OMORI Vinyl', 100.00)" class="add-to-cart btn btn-light rounded-circle text-end ms-5 h-25 align-self-center"><img class="transparent-bg" src="../Image/plus-black-symbol.png" alt="+" width="12"></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script src="merchStore.js"></script>
+</body>
+</html>
